@@ -14,7 +14,7 @@ const Style = StyleSheet.create({
     },
     calendar:{
         borderRadius: 30,
-        height: '65%',
+        height: '70%',
         top: '20%',
     },
     button:{
