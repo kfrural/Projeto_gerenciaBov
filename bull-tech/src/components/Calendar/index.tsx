@@ -9,25 +9,15 @@ import { useUser } from '../../auth/UserContext';
 
 LocaleConfig.locales['pt-br'] = {
     monthNames: [
-        'Janeiro',
-        'Fevereiro',
-        'Março',
-        'Abril',
-        'Maio',
-        'Junho',
-        'Julho',
-        'Agosto',
-        'Setembro',
-        'Outubro',
-        'Novembro',
-        'Dezembro',
+        'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
+        'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
     ],
     monthNamesShort: ['Jan.', 'Fev.', 'Mar.', 'Abr.', 'Mai.', 'Jun.', 'Jul.', 'Ago.', 'Set.', 'Out.', 'Nov.', 'Dez.'],
     dayNames: ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'],
     dayNamesShort: ['Dom.', 'Seg.', 'Ter.', 'Qua.', 'Qui.', 'Sex.', 'Sáb.'],
 };
-
 LocaleConfig.defaultLocale = 'pt-br';
+
 
 const Calendario = () => {
     const { user } = useUser();
@@ -35,13 +25,14 @@ const Calendario = () => {
     const [userEvents, setUserEvents] = useState({});
     const navigation = useNavigation();
 
+    // Busca os eventos do usuário no Supabase
     useEffect(() => {
         const fetchUserEvents = async () => {
             try {
                 const { data, error } = await supabase
                     .from('eventos')
                     .select('*')
-                    .eq('id_usuario', user.id);
+                    .eq('id', user.id);
 
                 if (error) {
                     console.error('Erro ao buscar eventos:', error.message);
@@ -68,28 +59,34 @@ const Calendario = () => {
         setSelectedDate(day.dateString);
         const eventsOnSelectedDate = userEvents[day.dateString] || [];
         if (eventsOnSelectedDate.length > 0) {
-            // Navegar para a tela de edição de evento, passando os eventos do dia selecionado
+            // Navega para a tela de edição de evento, passando os eventos do dia selecionado
             navigation.navigate('Evento', { events: eventsOnSelectedDate });
         } else {
-            // Navegar para a tela de criação de novo evento, passando a data selecionada
+            // Navega para a tela de criação de novo evento, passando a data selecionada
             navigation.navigate('Evento', { selectedDate: day.dateString });
         }
     };
+    
 
+    // Navega para a tela de evento, passando a data selecionada
     const navigateToEvento = () => {
         navigation.navigate('Evento', { selectedDate: selectedDate });
     };
 
     return (
         <>
-            <Calendar
-                onDayPress={onDayPress}
-                markedDates={{
-                    ...userEvents,
-                    [selectedDate]: { selected: true, selectedColor: 'blue' },
-                }}
-                style={Style.calendar}
-            />
+             <Calendar
+            onDayPress={onDayPress}
+            markedDates={{
+                ...userEvents,
+                ...(Object.keys(userEvents).reduce((acc, date) => {
+                    acc[date] = { marked: true, dotColor: 'green' };
+                    return acc;
+                }, {})),
+                [selectedDate]: { selected: true, selectedColor: 'red' },
+            }}
+            style={Style.calendar}
+        />
             <TouchableOpacity style={Style.button} onPress={navigateToEvento}>
                 <Text style={Style.text}>
                     Novo evento

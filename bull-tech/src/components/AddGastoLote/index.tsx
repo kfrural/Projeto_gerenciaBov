@@ -34,9 +34,10 @@ const AddGastoLote = () => {
         const promises = gastos.map(async (gasto) => {
           const valorNumerico = parseFloat(gasto.valor);
   
-          const { error } = await supabase.from('gastos').insert([
+          const { error } = await supabase.from('financeiroLote').insert([
             {
               id_lote: lote.id_lote,
+              tipo: 'gasto',
               descricao: gasto.descricao,
               valor: valorNumerico,
               data: new Date().toISOString().slice(0, 10),

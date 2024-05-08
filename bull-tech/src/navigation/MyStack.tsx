@@ -18,6 +18,10 @@ import CalcularRacao from '../screens/CalcularRacao';
 import Financeiro from '../screens/Financeiro';
 
 import Evento from '../screens/Evento';
+import Vacinacao from '../screens/Vacinacao';
+import Reproducao from '../screens/Reproducao';
+import Pagamentos from '../screens/Pagamentos';
+import TrocaFase from '../screens/TrocaFase';
 
 // Criação do Stack Navigator
 const Stack = createNativeStackNavigator();
@@ -42,6 +46,10 @@ function MyStack() {
       <Stack.Screen name='CalcularRacao' component={CalcularRacao} />
       <Stack.Screen name='Financeiro' component={Financeiro} />
       <Stack.Screen name='Evento' component={Evento} />
+      <Stack.Screen name='Vacinacao' component={Vacinacao} />
+      <Stack.Screen name='Reproducao' component={Reproducao} />
+      <Stack.Screen name='Pagamentos' component={Pagamentos} />
+      <Stack.Screen name='TrocaFase' component={TrocaFase} />
     </Stack.Navigator>
   );
 }
