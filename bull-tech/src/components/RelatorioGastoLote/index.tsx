@@ -21,7 +21,7 @@ const RelatorioGastoLote = () => {
     const fetchGastos = async () => {
       if (lote) {
         const { data, error } = await supabase
-          .from('financeiroLote')
+          .from('financeiro_lote')
           .select('*')
           .eq('id_lote', lote.id_lote);
 

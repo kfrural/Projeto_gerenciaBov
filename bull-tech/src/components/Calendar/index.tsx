@@ -5,6 +5,8 @@ import { useNavigation } from "@react-navigation/native";
 import Style from "./Style";
 import { supabase } from '../../service/supabase';
 import { useUser } from '../../auth/UserContext';
+import * as Notifications from 'expo-notifications';
+
 
 
 LocaleConfig.locales['pt-br'] = {
@@ -55,20 +57,49 @@ const Calendario = () => {
         fetchUserEvents();
     }, [user.id]);
 
+    useEffect(() => {
+        const interval = setInterval(async () => {
+            const today = new Date();
+            const fiveDaysFromNow = new Date(today.getTime() + 5 * 24 * 60 * 60 * 1000);
+
+            Object.keys(userEvents).forEach(async (date) => {
+                const eventDate = new Date(date);
+                if (eventDate.getTime() === fiveDaysFromNow.getTime()) {
+                    const events = userEvents[date];
+                    events.forEach(async (event) => {
+                        await sendNotification(event.tipo, event.data);
+                    });
+                }
+            });
+        }, 24 * 60 * 60 * 1000);
+
+        return () => clearInterval(interval);
+    }, [userEvents]);
+
+    async function sendNotification(tipo, data) {
+        await Notifications.scheduleNotificationAsync({
+            content: {
+                title: `${tipo} está com data marcada para daqui a 5 dias`,
+                body: `O evento está marcado para ${data}`,
+            },
+            trigger: {
+                seconds: 5 * 24 * 60 * 60,
+            },
+        });
+    }
+
     const onDayPress = (day: any) => {
         setSelectedDate(day.dateString);
         const eventsOnSelectedDate = userEvents[day.dateString] || [];
         if (eventsOnSelectedDate.length > 0) {
-            // Navega para a tela de edição de evento, passando os eventos do dia selecionado
-            navigation.navigate('Evento', { events: eventsOnSelectedDate });
+            // Navega para a tela de edição de evento, passando os eventos do dia selecionado FALTA ESSE TREM AINDA
+            navigation.navigate('EdtEventos', { events: eventsOnSelectedDate });
         } else {
-            // Navega para a tela de criação de novo evento, passando a data selecionada
             navigation.navigate('Evento', { selectedDate: day.dateString });
         }
     };
     
 
-    // Navega para a tela de evento, passando a data selecionada
     const navigateToEvento = () => {
         navigation.navigate('Evento', { selectedDate: selectedDate });
     };

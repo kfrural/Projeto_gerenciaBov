@@ -77,11 +77,11 @@ CREATE TABLE financeiroLote (
 
 CREATE TABLE financeiro (
   id_financeiro SERIAL PRIMARY KEY,
-  id_lote INT,
+  id_usuario INT,
   tipo VARCHAR,
   descricao VARCHAR(255),
   valor FLOAT,
   data DATE,
-  FOREIGN KEY (id_lote) REFERENCES lotes(id_lote)
+  FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
 );
 
