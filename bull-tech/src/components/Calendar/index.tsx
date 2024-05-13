@@ -27,7 +27,6 @@ const Calendario = () => {
     const [userEvents, setUserEvents] = useState({});
     const navigation = useNavigation();
 
-    // Busca os eventos do usuário no Supabase
     useEffect(() => {
         const fetchUserEvents = async () => {
             try {

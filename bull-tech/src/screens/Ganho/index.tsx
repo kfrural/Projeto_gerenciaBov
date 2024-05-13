@@ -1,7 +1,7 @@
 import React from "react";
 import { TouchableOpacity, View, Image } from "react-native";
 import Style from "./Style";
-import Ganho from "../../components/Ganho";
+import Ganhos from "../../components/Ganho";
 import { useNavigation } from "@react-navigation/native";
 import logoImage from "../../assets/seta.png";
 
@@ -19,7 +19,7 @@ export default function Ganho() {
                 </TouchableOpacity>
             </View>
             <View style={Style.container}>
-                <Ganho />
+                <Ganhos />
             </View>
 
         </>

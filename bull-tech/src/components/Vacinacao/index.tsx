@@ -18,18 +18,25 @@ const Vacina = () => {
 
   useEffect(() => {
     const fetchLotes = async () => {
-      const { data, error } = await supabase.from('lotes').select('id_lote, descricao');
+      try {
+        const { data, error } = await supabase
+          .from('lotes')
+          .select('id_lote, descricao')
+          .eq('id_usuario', user.id);
 
-      if (error) {
-        console.error('Erro ao buscar lotes: ', error.message);
-      } else {
-        console.log('Dados dos lotes: ', data);
-        setLotes(data);
+        if (error) {
+          console.error('Erro ao buscar lotes: ', error.message);
+        } else {
+          console.log('Dados dos lotes: ', data);
+          setLotes(data);
+        }
+      } catch (error) {
+        console.error('Erro ao buscar lotes: ', error);
       }
     };
 
     fetchLotes();
-  }, []);
+  }, [user.id]);
 
   const handlePressSalvar = async () => {
     try {
@@ -43,12 +50,12 @@ const Vacina = () => {
           },
         ])
         .select('id_vacinas');
-  
+
       if (vacinaError) {
         console.error('Erro ao adicionar vacina: ', vacinaError.message);
       } else {
         console.log('Vacina adicionada:', vacinaData[0].id_vacinas);
-  
+
         const { error: eventoError } = await supabase
           .from('eventos')
           .insert([
@@ -59,7 +66,7 @@ const Vacina = () => {
               data: new Date().toISOString().slice(0, 10),
             },
           ]);
-  
+
         if (eventoError) {
           console.error('Erro ao adicionar evento: ', eventoError.message);
         } else {
@@ -74,7 +81,6 @@ const Vacina = () => {
       console.error('Erro ao adicionar vacina: ', error);
     }
   };
-  
 
   return (
     <View style={Style.container}>

@@ -15,7 +15,11 @@ import RelatorioGasto from '../screens/RelatorioGasto';
 import Calendario from '../screens/Calendario';
 import Coverter from '../screens/Converter';
 import CalcularRacao from '../screens/CalcularRacao';
+
 import Financeiro from '../screens/Financeiro';
+import Ganho from '../screens/Ganho';
+import Gasto from '../screens/Gasto';
+import Saldo from '../screens/Saldo';
 
 import Evento from '../screens/Evento';
 import EdtEventos from '../screens/EdtEventos';
@@ -45,7 +49,12 @@ function MyStack() {
       <Stack.Screen name="Calendario" component={Calendario} />
       <Stack.Screen name="Converter" component={Coverter} />
       <Stack.Screen name='CalcularRacao' component={CalcularRacao} />
+
       <Stack.Screen name='Financeiro' component={Financeiro} />
+      <Stack.Screen name='Ganho' component={Ganho} />
+      <Stack.Screen name='Gasto' component={Gasto} />
+      <Stack.Screen name='Saldo' component={Saldo} />
+
       <Stack.Screen name='Evento' component={Evento} />
       <Stack.Screen name='EdtEventos' component={EdtEventos} />
       <Stack.Screen name='Vacinacao' component={Vacinacao} />

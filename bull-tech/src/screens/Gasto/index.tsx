@@ -1,11 +1,11 @@
 import React from "react";
-import { View, Image, TouchableOpacity } from "react-native";
+import { TouchableOpacity, View, Image } from "react-native";
 import Style from "./Style";
-import CalcularRacao from "../../components/CalcularRacao";
+import Gastos from "../../components/Gasto";
 import { useNavigation } from "@react-navigation/native";
 import logoImage from "../../assets/seta.png";
 
-export default function CalculaRacao() {
+export default function Gasto() {
     const navigation = useNavigation();
 
     const handleGoBack = () => {
@@ -19,8 +19,9 @@ export default function CalculaRacao() {
                 </TouchableOpacity>
             </View>
             <View style={Style.container}>
-                <CalcularRacao />
+                <Gastos />
             </View>
+
         </>
     )
 }

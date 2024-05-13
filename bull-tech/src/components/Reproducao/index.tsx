@@ -19,7 +19,7 @@ const reproducao = () => {
 
   useEffect(() => {
     const fetchLotes = async () => {
-      const { data, error } = await supabase.from('lotes').select('id_lote, descricao');
+      const { data, error } = await supabase.from('lotes').select('id_lote, descricao').eq('id_usuario', user.id);
 
       if (error) {
         console.error('Erro ao buscar lotes: ', error.message);
@@ -30,7 +30,7 @@ const reproducao = () => {
     };
 
     fetchLotes();
-  }, []);
+  }, [user.id]);
 
   const handlePressSalvar = async () => {
     try {

@@ -52,7 +52,7 @@ const Pagamento = () => {
       } else {
         console.log('Pagamento adicionado:', pagamentoData[0].id_pagamento);
   
-        const tipoFinanceiro = tipo === 'pagamento' ? 'gasto' : 'ganho';
+        const tipoFinanceiro = tipo === 'pagamento' ? 'gastos' : 'ganhos';
   
         const { error: financeiroError } = await supabase
           .from('financeiro')

@@ -5,31 +5,30 @@ import Style from './Style';
 import { useNavigation } from '@react-navigation/native';
 import { supabase } from '../../service/supabase';
 
-const RelatorioGanho = () => {
+const RelatorioSaldo = () => {
     const navigation = useNavigation();
     const route = useRoute();
 
-    const [ganhos, setGanhos] = useState([]);
+    const [gastos, setGastos] = useState([]);
 
     useEffect(() => {
-        const fetchGanhos = async () => {
+        const fetchGastos = async () => {
             try {
                 const { data, error } = await supabase
                     .from('financeiro')
-                    .select('*')
-                    .eq('tipo', 'ganhos');
+                    .select('*');
 
                 if (error) {
-                    throw new Error('Erro ao buscar ganhos: ' + error.message);
+                    throw new Error('Erro ao buscar gastos: ' + error.message);
                 } else {
-                    setGanhos(data);
+                    setGastos(data);
                 }
             } catch (error) {
-                console.error('Erro ao buscar ganhos:', error);
+                console.error('Erro ao buscar gastos:', error);
             }
         };
 
-        fetchGanhos();
+        fetchGastos();
     }, []);
 
     const formatarData = (dataStr) => {
@@ -42,8 +41,12 @@ const RelatorioGanho = () => {
     };
 
     const calcularTotal = () => {
-        return ganhos.reduce((total, item) => total + parseFloat(item.valor), 0);
-    };
+        const totalGanhos = gastos.filter((item) => item.tipo === 'ganhos').reduce((total, item) => total + parseFloat(item.valor), 0);
+        const totalGastos = gastos.filter((item) => item.tipo === 'gastos').reduce((total, item) => total + parseFloat(item.valor), 0);
+        
+        return totalGanhos - totalGastos;
+      };
+
 
     return (
         <View style={Style.container}>
@@ -57,12 +60,12 @@ const RelatorioGanho = () => {
                 <Text style={Style.tableHeaderLabel}>Data</Text>
             </View>
             <FlatList
-                data={ganhos}
+                data={gastos}
                 renderItem={({ item }) => (
                     <View style={Style.tableRow}>
                         <Text style={Style.tableCell}>{item.descricao}</Text>
-                        <Text style={Style.tableCell}>R$ {item.valor}</Text>
                         <Text style={Style.tableCell}>{formatarData(item.data)}</Text>
+                        <Text style={Style.tableCell}>{item.tipo === 'gastos' ? `- R$ ${item.valor}` : `R$ ${item.valor}`}</Text>
                     </View>
                 )}
             />
@@ -70,4 +73,4 @@ const RelatorioGanho = () => {
     );
 };
 
-export default RelatorioGanho;
+export default RelatorioSaldo;
