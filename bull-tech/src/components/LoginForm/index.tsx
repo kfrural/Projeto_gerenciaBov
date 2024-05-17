@@ -1,6 +1,6 @@
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Style from './Style';
 import { supabase } from '../../service/supabase';
@@ -26,7 +26,6 @@ const Login = () => {
       } else if (data) {
         const user = {
           id: data.id,
-          // Adicione outras informações do usuário que você queira armazenar
         };
         setUser(user);
         navigation.navigate('Home', { userId: user.id });
@@ -46,28 +45,37 @@ const Login = () => {
 
   return (
     <View style={Style.container}>
-      <TextInput
-        style={Style.txtInput}
-        placeholder='Usuário'
-        value={id}
-        onChangeText={setId}
-      />
-      <TextInput
-        style={Style.txtInput}
-        placeholder='Senha'
-        secureTextEntry
-        value={password}
-        onChangeText={setPassword}
-      />
-      <View style={Style.containerBtn}>
-        <TouchableOpacity style={Style.buttonCad} onPress={handlePress}>
-          <Text style={Style.textCad}>Criar Conta</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={Style.button} onPress={handleLogin}>
-          <Text style={Style.text}>Entrar</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+  <View style={Style.inputContainer}>
+    <TextInput
+      style={Style.txtInput}
+      placeholder='Usuário'
+      value={id}
+      onChangeText={setId}
+    />
+    <Image source={require('../../assets/usuario.png')} style={Style.imgIcons} />
+  </View>
+  
+  <View style={Style.inputContainer}>
+    <TextInput
+      style={Style.txtInput}
+      placeholder='Senha'
+      secureTextEntry
+      value={password}
+      onChangeText={setPassword}
+    />
+    <Image source={require('../../assets/senha.png')} style={Style.imgIcons2} />
+  </View>
+
+  <View style={Style.containerBtn}>
+    <TouchableOpacity style={Style.buttonCad} onPress={handlePress}>
+      <Text style={Style.textCad}>CRIAR CONTA</Text>
+    </TouchableOpacity>
+    <TouchableOpacity style={Style.button} onPress={handleLogin}>
+      <Text style={Style.text}>ENTRAR</Text>
+    </TouchableOpacity>
+  </View>
+</View>
+
   );
 }
 

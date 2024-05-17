@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, TextInput } from 'react-native';
+import { View, Text, TouchableOpacity, TextInput, Image } from 'react-native';
 import Style from './Style';
 import { useNavigation } from "@react-navigation/native";
 import { supabase } from '../../service/supabase';
 
-const RegistrationForm = () => {
-  const [id, setId] = useState ('');
+const CadastroForm = () => {
+  const [id, setId] = useState('');
   const [nome, setNome] = useState('');
   const [sobrenome, setSobrenome] = useState('');
   const [telefone, setTelefone] = useState('');
@@ -19,9 +19,9 @@ const RegistrationForm = () => {
       const { data, error } = await supabase
         .from('usuarios')
         .insert([
-          {id, nome, sobrenome, telefone, email, senha }
+          { id, nome, sobrenome, telefone, email, senha }
         ]);
-      
+
       if (error) {
         console.error('Erro ao adicionar usuário:', error.message);
       } else {
@@ -35,26 +35,39 @@ const RegistrationForm = () => {
 
   return (
     <View style={Style.container}>
-      <View style={Style.TextInput}>
-        <TextInput placeholder='Nome' value={nome} onChangeText={setNome} />
+      <View style={Style.inputContainer}>
+        <TextInput placeholder='Nome' value={nome} onChangeText={setNome} style={Style.input} />
+        <Image source={require('../../assets/usuario.png')} style={Style.imgIcons} />
       </View>
-      <View style={Style.TextInput}>
-        <TextInput placeholder='Sobrenome' value={sobrenome} onChangeText={setSobrenome} />
+      
+      <View style={Style.inputContainer}>
+        <TextInput placeholder='Sobrenome' value={sobrenome} onChangeText={setSobrenome} style={Style.input} />
+        <Image source={require('../../assets/usuario.png')} style={Style.imgIcons} />
       </View>
-      <View style={Style.TextInput}>
-        <TextInput placeholder='Email' keyboardType="email-address" value={email} onChangeText={setEmail} />
+      
+      <View style={Style.inputContainer}>
+        <TextInput placeholder='Email' keyboardType="email-address" value={email} onChangeText={setEmail} style={Style.input} />
+        <Image source={require('../../assets/email.png')} style={Style.imgIcons2} />
       </View>
-      <View style={Style.TextInput}>
-        <TextInput placeholder='Telefone' keyboardType='numeric' value={telefone} onChangeText={setTelefone} />
+      
+      <View style={Style.inputContainer}>
+        <TextInput placeholder='Telefone' keyboardType='numeric' value={telefone} onChangeText={setTelefone} style={Style.input} />
+        <Image source={require('../../assets/telefone.png')} style={Style.imgIcons} />
       </View>
-      <View style={Style.TextInput}>
-        <TextInput placeholder='Usuario' value={id} onChangeText={setId} />
+      
+      <View style={Style.inputContainer}>
+        <TextInput placeholder='Usuario' value={id} onChangeText={setId} style={Style.input} />
+        <Image source={require('../../assets/usuario.png')} style={Style.imgIcons} />
       </View>
-      <View style={Style.TextInput}>
-        <TextInput placeholder='Senha' secureTextEntry value={senha} onChangeText={setSenha} />
+      
+      <View style={Style.inputContainer}>
+        <TextInput placeholder='Senha' secureTextEntry value={senha} onChangeText={setSenha} style={Style.input} />
+        <Image source={require('../../assets/senha.png')} style={Style.imgIcons2} />
       </View>
-      <View style={Style.TextInput}>
-        <TextInput placeholder='Confirme a senha' secureTextEntry value={confirmedPassword} onChangeText={setConfirmedPassword} />
+      
+      <View style={Style.inputContainer}>
+        <TextInput placeholder='Confirme a senha' secureTextEntry value={confirmedPassword} onChangeText={setConfirmedPassword} style={Style.input} />
+        <Image source={require('../../assets/senha.png')} style={Style.imgIcons2} />
       </View>
 
       <View style={Style.containerBtn}>
@@ -68,4 +81,4 @@ const RegistrationForm = () => {
   );
 }
 
-export default RegistrationForm;
+export default CadastroForm;

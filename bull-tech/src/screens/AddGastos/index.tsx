@@ -5,7 +5,7 @@ import AddGastoLote from "../../components/AddGastoLote";
 import { useNavigation } from "@react-navigation/native";
 import logoImage from "../../assets/seta.png";
 
-export default function Home() {
+export default function AddGasto() {
     const navigation = useNavigation();
 
     const handleGoBack = () => {

@@ -55,67 +55,70 @@ const DetalhesLote = () => {
   };
 
   return (
+    <View style={Style.container}>
     <ScrollView contentContainerStyle={Style.scrollContainer}>
-      <View style={Style.container}>
-        <View style={Style.section}>
+      <View style={Style.table}>
+        <View style={Style.row}>
           <Text style={Style.label}>Descrição:</Text>
           <Text style={Style.text}>{updatedLote.descricao}</Text>
         </View>
-        <View style={Style.section}>
+        <View style={Style.row}>
           <Text style={Style.label}>Quantidade:</Text>
           <Text style={Style.text}>{updatedLote.quantidade}</Text>
         </View>
-        <View style={Style.section}>
+        <View style={Style.row}>
           <Text style={Style.label}>Peso Total na Compra:</Text>
           <Text style={Style.text}>{updatedLote.peso_total_compra}</Text>
         </View>
-        <View style={Style.section}>
+        <View style={Style.row}>
           <Text style={Style.label}>Peso Total Vendido:</Text>
           <Text style={Style.text}>{updatedLote.peso_total_vendido}</Text>
         </View>
-        <View style={Style.section}>
+        <View style={Style.row}>
           <Text style={Style.label}>Valor Pago:</Text>
           <Text style={Style.text}>{updatedLote.valor_pago}</Text>
         </View>
-        <View style={Style.section}>
+        <View style={Style.row}>
           <Text style={Style.label}>Valor Vendido:</Text>
           <Text style={Style.text}>{updatedLote.valor_vendido}</Text>
         </View>
-        <View style={Style.section}>
+        <View style={Style.row}>
           <Text style={Style.label}>Saldo Final:</Text>
           <Text style={Style.text}>{updatedLote.saldo_final}</Text>
         </View>
-        <View style={Style.section}>
+        <View style={Style.row}>
           <Text style={Style.label}>Data:</Text>
           <Text style={Style.text}>{formatarData(updatedLote.data)}</Text>
         </View>
-        <View style={Style.section}>
+        <View style={Style.row}>
           <Text style={Style.label}>Data Vendido:</Text>
           <Text style={Style.text}>{formatarData(updatedLote.data_vendido)}</Text>
         </View>
-        <View style={Style.containerBtn}>
-          <TouchableOpacity style={Style.button} onPress={handlePressAddGastos}>
-            <Text style={Style.textBtn}>
-              Adicionar gastos
-            </Text>
-          </TouchableOpacity>
-        </View>
-        <View style={Style.containerBtn}>
-          <TouchableOpacity style={Style.button} onPress={handlePressRelatorio}>
-            <Text style={Style.textBtn}>
-              Relatório de gastos
-            </Text>
-          </TouchableOpacity>
-        </View>
-        <View style={Style.containerBtn}>
-          <TouchableOpacity style={Style.button} onPress={handlePressVenderLote}>
-            <Text style={Style.textBtn}>
-              Vender Lote
-            </Text>
-          </TouchableOpacity>
-        </View>
+      </View>
+      <View style={Style.containerBtn}>
+        <TouchableOpacity style={Style.button} onPress={handlePressAddGastos}>
+          <Text style={Style.textBtn}>
+            Adicionar gastos
+          </Text>
+        </TouchableOpacity>
+      </View>
+      <View style={Style.containerBtn}>
+        <TouchableOpacity style={Style.button} onPress={handlePressRelatorio}>
+          <Text style={Style.textBtn}>
+            Relatório de gastos
+          </Text>
+        </TouchableOpacity>
+      </View>
+      <View style={Style.containerBtn}>
+        <TouchableOpacity style={Style.button} onPress={handlePressVenderLote}>
+          <Text style={Style.textBtn}>
+            Vender Lote
+          </Text>
+        </TouchableOpacity>
       </View>
     </ScrollView>
+  </View>
+  
   );
 };
 

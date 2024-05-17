@@ -7,7 +7,7 @@ import Saldo from '../../components/FuncoesFinanceiro/Saldo';
 import { useNavigation } from "@react-navigation/native";
 import logoImage from "../../assets/seta.png";
 
-export default function Home() {
+export default function Financeiro() {
     const navigation = useNavigation();
 
     const handleGoBack = () => {

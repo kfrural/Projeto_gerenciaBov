@@ -5,7 +5,7 @@ import Vacinar from "../../components/Vacinacao";
 import { useNavigation } from "@react-navigation/native";
 import logoImage from "../../assets/seta.png";
 
-export default function VenderLote() {
+export default function Vacinacao() {
     const navigation = useNavigation();
 
     const handleGoBack = () => {

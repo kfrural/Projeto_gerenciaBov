@@ -6,7 +6,7 @@ import logoImage from "../../assets/seta.png";
 import { useNavigation } from "@react-navigation/native";
 
 
-export default function Home() {
+export default function CadLotes() {
     const navigation = useNavigation();
 
     const handleGoBack = () => {

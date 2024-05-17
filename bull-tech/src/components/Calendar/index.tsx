@@ -91,7 +91,6 @@ const Calendario = () => {
         setSelectedDate(day.dateString);
         const eventsOnSelectedDate = userEvents[day.dateString] || [];
         if (eventsOnSelectedDate.length > 0) {
-            // Navega para a tela de edição de evento, passando os eventos do dia selecionado FALTA ESSE TREM AINDA
             navigation.navigate('EdtEventos', { events: eventsOnSelectedDate });
         } else {
             navigation.navigate('Evento', { selectedDate: day.dateString });

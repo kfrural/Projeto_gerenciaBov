@@ -5,7 +5,7 @@ import Pagar from "../../components/Pagamentos";
 import { useNavigation } from "@react-navigation/native";
 import logoImage from "../../assets/seta.png";
 
-export default function VenderLote() {
+export default function Pagamento() {
     const navigation = useNavigation();
 
     const handleGoBack = () => {

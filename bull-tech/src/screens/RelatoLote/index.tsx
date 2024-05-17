@@ -5,7 +5,7 @@ import RelatoLote from "../../components/RelatoLote";
 import { useNavigation } from "@react-navigation/native";
 import logoImage from "../../assets/seta.png";
 
-export default function Home() {
+export default function RelatorioLote() {
     const navigation = useNavigation();
 
     const handleGoBack = () => {

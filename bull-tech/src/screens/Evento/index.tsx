@@ -8,7 +8,7 @@ import TrocaFases from '../../components/FuncoesEventos/TrocaFases';
 import { useNavigation } from "@react-navigation/native";
 import logoImage from "../../assets/seta.png";
 
-export default function Home() {
+export default function Evento() {
     const navigation = useNavigation();
 
     const handleGoBack = () => {

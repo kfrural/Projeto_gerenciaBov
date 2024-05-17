@@ -4,7 +4,7 @@ import Style from "./Style";
 import LogoComponent from "./Logo";
 import { useNavigation } from "@react-navigation/native";
 
-export default function CadLote() {
+export default function Calendario() {
     const navigation = useNavigation<any>();
     const handlePress = () => {
         console.log("Botão pressionado");

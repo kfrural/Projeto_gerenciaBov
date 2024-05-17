@@ -13,7 +13,7 @@ const Style = StyleSheet.create({
     padding: 15,
     backgroundColor: '#fff',
     borderRadius: 10,
-    marginBottom: 10,
+    marginBottom: 20,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -27,7 +27,6 @@ const Style = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     color: '#333',
-    flex: 1,
   },
   tableRow: {
     flexDirection: 'row',
@@ -37,19 +36,10 @@ const Style = StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 10,
     marginBottom: 10,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
   },
   tableCell: {
     fontSize: 16,
     color: '#666',
-    flex: 1,
   },
   totalContainer: {
     backgroundColor: '#fff',

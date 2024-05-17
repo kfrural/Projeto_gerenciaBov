@@ -8,11 +8,11 @@ const Style = StyleSheet.create({
     justifyContent: 'center',
   },
   container: {
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
-    height: 'auto',
-    width: '75%',
-    padding: 20,
-    borderRadius: 40,
+    backgroundColor: 'rgba(255, 255, 255, 1)',
+    height: '90%',
+    width: '200%',
+    padding: 100,
+    borderRadius: 380,
   },
 });
 

@@ -62,7 +62,7 @@ const CalcularRacao = () => {
                     selectedValue={tipoAnimal}
                     onValueChange={(itemValue) => setTipoAnimal(itemValue)}
                 >
-                    <RNPicker.Item label="Selecione a fase" value={null} />
+                    <RNPicker.Item label="Selecione o tipo" value={null} />
                     <RNPicker.Item label="Lactação" value="lactacao" />
                     <RNPicker.Item label="Engorda" value="engorda" />
                 </RNPicker>

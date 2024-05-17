@@ -5,7 +5,7 @@ import Reproduz from "../../components/Reproducao";
 import { useNavigation } from "@react-navigation/native";
 import logoImage from "../../assets/seta.png";
 
-export default function VenderLote() {
+export default function Reproducao() {
     const navigation = useNavigation();
 
     const handleGoBack = () => {

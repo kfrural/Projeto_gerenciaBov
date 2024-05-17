@@ -5,7 +5,7 @@ import TrocarFase from "../../components/TrocaFases";
 import { useNavigation } from "@react-navigation/native";
 import logoImage from "../../assets/seta.png";
 
-export default function VenderLote() {
+export default function TrocaFase() {
     const navigation = useNavigation();
 
     const handleGoBack = () => {
