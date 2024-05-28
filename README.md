@@ -42,6 +42,9 @@ Após a definição das funcionalidades e da arquitetura do aplicativo, será re
   * Banco de dados: Supabase
 
 ## Protótipo
+
+![Imagem do prototipo](prototipo.png)
+
 link do prototipo no figma
 [Prototipo](https://www.figma.com/file/xTPbfypmyDpxrZLTi7QZNs/BullTech-Phone?type=design&node-id=0%3A1&mode=design&t=ECMXuzdukrnFKLJX-1)
 
