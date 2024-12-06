@@ -17,6 +17,7 @@ const paymentsRoute = require("./src/routes/payments");
 const reportsRoute = require("./src/routes/reports");
 const vaccinesRoute = require("./src/routes/vaccines");
 const reproductionsRoute = require("./src/routes/reproductions");
+const changePhaseRoute = require("./src/routes/changePhase");
 
 //rotas
 app.use("/api/users", usersRoute);
@@ -29,5 +30,6 @@ app.use("/api/payments", paymentsRoute);
 app.use("/api/reports", reportsRoute);
 app.use("/api/vaccines", vaccinesRoute);
 app.use("/api/reproductions", reproductionsRoute);
+app.use("/api/changePhase", changePhaseRoute);
 
 exports.api = functions.https.onRequest(app);

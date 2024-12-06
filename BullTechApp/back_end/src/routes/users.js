@@ -27,8 +27,7 @@ router.post('/', async (req, res) => {
     });
     res.status(201).json({ message: 'User created successfully' });
   } catch (error) {
-    console.error('Error creating user:', error);
-    res.status(400).json({ error: 'Invalid request' });
+    Change phase created successfully
   }
 });
 
