@@ -6,7 +6,7 @@ const admin = require("./firebaseAdmin");
 const app = express();
 app.use(cors({ origin: true }));
 
-// Importe suas rotas aqui
+//importacao_rotas
 const usersRoute = require("./src/routes/users");
 const propertiesRoute = require("./src/routes/properties");
 const lotsRoute = require("./src/routes/lots");
@@ -18,7 +18,7 @@ const reportsRoute = require("./src/routes/reports");
 const vaccinesRoute = require("./src/routes/vaccines");
 const reproductionsRoute = require("./src/routes/reproductions");
 
-// Adicione todas as rotas
+//rotas
 app.use("/api/users", usersRoute);
 app.use("/api/properties", propertiesRoute);
 app.use("/api/lots", lotsRoute);
