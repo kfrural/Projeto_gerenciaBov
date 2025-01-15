@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createStackNavigator } from '@react-navigation/stack';
 
-import Index  from '../screens/Index';
+import Index  from '../screens/Index/Index';
+import Login from '../screens/Login/index';
 
-const Stack = createNativeStackNavigator();
+const Stack = createStackNavigator();
 
 
 function AppNavigator() {
@@ -12,6 +13,7 @@ function AppNavigator() {
       screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="Index" component={Index} />
+        <Stack.Screen name="Login" component={Login} />
         
       </Stack.Navigator>
     );
