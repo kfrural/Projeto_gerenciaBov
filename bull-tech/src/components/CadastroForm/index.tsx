@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, TextInput, Image } from 'react-native';
 import Style from './Style';
 import { useNavigation } from "@react-navigation/native";
 import { supabase } from '../../service/supabase';
+import MaskInput from 'react-native-mask-input';
 
 const CadastroForm = () => {
   const [id, setId] = useState('');
@@ -51,7 +52,17 @@ const CadastroForm = () => {
       </View>
       
       <View style={Style.inputContainer}>
-        <TextInput placeholder='Telefone' keyboardType='numeric' value={telefone} onChangeText={setTelefone} style={Style.input} />
+        <MaskInput
+          mask={['(', /\d/, /\d/, ')', ' ', /\d/, ' ', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]}
+          value={telefone}
+          onChangeText={(masked, unmasked) => {
+            setTelefone(masked);
+            // Você pode usar o 'unmasked' se precisar do valor sem máscara
+          }}
+          style={Style.input}
+          placeholder="(XX) XXXX-XXXX"
+          placeholderTextColor="#ccc"
+        />
         <Image source={require('../../assets/telefone.png')} style={Style.imgIcons} />
       </View>
       
