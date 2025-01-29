@@ -57,7 +57,7 @@ const CadastroForm = () => {
           value={telefone}
           onChangeText={(masked, unmasked) => {
             setTelefone(masked);
-            // Você pode usar o 'unmasked' se precisar do valor sem máscara
+            // usar unmasked pra pegar so os num
           }}
           style={Style.input}
           placeholder="(XX) XXXX-XXXX"
