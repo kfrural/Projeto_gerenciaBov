@@ -30,12 +30,12 @@ const InputPassword = ({ placeholder, value, onChangeText }: InputPasswordProps)
         }}
         secureTextEntry={!visible}
       />
-      <Ionicons
+      {/* <Ionicons
         
         size={20}
         style={styles.iconPassword}
         name={visible ? 'eye-outline' : 'eye-off-outline'}
-      />
+      /> */}
     </View>
   );
 };

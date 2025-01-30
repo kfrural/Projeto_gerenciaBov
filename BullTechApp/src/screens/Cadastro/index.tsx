@@ -10,7 +10,10 @@ import InputPassword from "../../components/InputPassword";
 import Button from "../../components/ButtonIndex";
 
 export default function Login() {
+    const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [telefone, setTelefone] = useState("");
+  const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const navigation = useNavigation();
@@ -50,33 +53,41 @@ export default function Login() {
     return (
         <View style={style.container}>
             <Image source={logo} style={style.logo} />
-            <Text style={style.title}>
-                Login
-            </Text>
-            <Text style={style.text}>
-                Olá! Vamos começar
-            </Text>
+            
             <View style={styles.inputContainer}>
             <Input
-              placeholder="Informe seu e-mail"
+              placeholder="Nome"
+              value={name}
+              onChangeText={setName}
+            />
+            <Input
+              placeholder="e-mail"
               value={email}
               onChangeText={handleChangeEmail}
+            />
+            <Input
+              placeholder="Telefone"
+              value={telefone}
+              onChangeText={setTelefone}
+            />
+            <Input
+              placeholder="Usuario"
+              value={user}
+              onChangeText={setUser}
             />
           </View>
           <View style={styles.inputContainer}>
             <InputPassword
-              placeholder="Informe sua senha"
+              placeholder="Senha"
+              value={password}
+              onChangeText={handleChangePassword}
+            />
+            <InputPassword
+              placeholder="COnfirme sua senha"
               value={password}
               onChangeText={handleChangePassword}
             />
           </View>
-          <Text>Relembrar</Text>
-          <Text>Esqueci a senha</Text>
-
-          <Button
-          title="Cadastrar"
-          onPress={() => handlePress("Cadastro")}
-        />
 
           <Button
           title="ENTRAR"

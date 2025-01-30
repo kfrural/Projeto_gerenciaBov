@@ -24,7 +24,7 @@
       "package": "com.anonymous.BullTechApp"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./src/assets/images/logoBao.png"
     }
   }
 }
