@@ -11,7 +11,7 @@ const Stack = createStackNavigator();
 
 function AppNavigator() {
     return (
-      <Stack.Navigator initialRouteName="Index"
+      <Stack.Navigator initialRouteName="Home" //tem que ficar em Index
       screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="Index" component={Index} />

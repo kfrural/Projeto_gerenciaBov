@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { Text, View, Image } from "react-native";
+import { Text, View, Image, TouchableOpacity } from "react-native";
 import style from './styles';
 import styles from './styles';
 import logo from "../../assets/images/logoBao.png";
@@ -73,10 +73,8 @@ export default function Login() {
           <Text>Relembrar</Text>
           <Text>Esqueci a senha</Text>
 
-          <Button
-          title="Cadastrar"
-          onPress={() => handlePress("Cadastro")}
-        />
+          <TouchableOpacity onPress={() => handlePress("Cadastro")}>Cadastrar conta</TouchableOpacity>
+           
 
           <Button
           title="ENTRAR"
